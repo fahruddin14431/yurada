@@ -62,7 +62,7 @@ if($row==1){
 	}
 
 	if ($res) {
-		Helper::alertDirect('Pendaftaran Sukses Tunggu','home');
+		Helper::alertDirect('Pendaftaran Sukses Tunggu ACC Administrator','home');
 	}else{
 		Helper::alertDirect('Pendaftaran Gagal','home');
 	}

@@ -9,7 +9,7 @@ class Helper {
 			echo "<script type='text/javascript'> alert('$pesan'); window.location='../index.php?halaman=$halaman'; </script>";
 		}
 
-		public static function alertDirectLogin($pesan,$halaman){
+		public static function alertDirectRoot($pesan,$halaman){
 			echo "<script type='text/javascript'> alert('$pesan'); window.location='index.php?halaman=$halaman'; </script>";
 		}
 	}

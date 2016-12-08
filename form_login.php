@@ -10,10 +10,13 @@
                     <fieldset>
                         <div class="form-group">
                             <label class="radio-inline">
-                                <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline1" value="option1" checked>Pelanggan
+                                <input type="radio" name="status" value="pelanggan" checked>Pelanggan
                             </label>
                             <label class="radio-inline">
-                                 <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline2" value="option2">UMKM
+                                 <input type="radio" name="status" value="umkm">UMKM
+                            </label>
+                            <label class="radio-inline">
+                                 <input type="radio" name="status" value="administrator">Administrator
                             </label>
                         </div>
                         <div class="form-group">

@@ -198,27 +198,27 @@ $id_pelanggan = $_SESSION['id_pelanggan'];
             }else if($_GET['halaman']=="login"){
                 include 'form_login.php';
             }else if($_GET['halaman']=="service"){
-                include 'service.php';
+                include 'pelanggan/service.php';
             }else if($_GET['halaman']=="about"){
-                include 'about.php';
+                include 'pelanggan/about.php';
             }else if($_GET['halaman']=="checkout"){
-                include 'checkout.php';
+                include 'pelanggan/checkout.php';
             }else if($_GET['halaman']=="shoppingcart"){
-                include 'shoppingcart.php';
+                include 'pelanggan/shoppingcart.php';
             }else if($_GET['halaman']=="tracking"){
-                include 'tracking.php';
+                include 'pelanggan/tracking.php';
             }else if($_GET['halaman']=="payment"){
-                include 'payment.php';
+                include 'pelanggan/payment.php';
             }else if($_GET['halaman']=="product_hijab"){
-                include 'product.php';
+                include 'pelanggan/product.php';
             }else if($_GET['halaman']=="product_fashion"){
-                include 'product.php';
+                include 'pelanggan/product.php';
             }else if($_GET['halaman']=="product_elektronik"){
-                include 'product.php';
+                include 'pelanggan/product.php';
             }else if($_GET['halaman']=="detail_product"){
-                include 'detail_product.php';
+                include 'pelanggan/detail_product.php';
             }else{
-                include 'home.php';                
+                include 'pelanggan/home.php';                
             }
 
 
