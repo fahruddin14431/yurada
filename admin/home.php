@@ -1,5 +1,4 @@
 <?php 
-session_start();
 $id_admin = $_SESSION['id_admin'];
 include '../config/koneksi.php';
 

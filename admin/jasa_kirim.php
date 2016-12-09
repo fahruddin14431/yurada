@@ -1,7 +1,7 @@
 <!-- row -->
 <div class="row">
     <div class="col-lg-12">
-    <h2 class="page-header"><b> Validasi Product UMKM </b></h2>
+    <h2 class="page-header"><b> Daftar Jasa Pengiriman Barang </b></h2>
 
     <div class="container-fluid">
         <div class="row">
@@ -10,16 +10,13 @@
                           
         <div class="box-body table-responsive">
 
-        <form action="validasi_barang_delete_proses.php" method="GET">
-        <table id="tabel-data" class="table table-striped table-bordered" width="100%" cellspacing="0">
+            <form action="jasa_kirim_delete_proses.php" method="GET">
+            <table id="tabel-data" class="table tables-nowrap table-bordered" width="100%" cellspacing="0">
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>ID</th>
-                        <th>Nama Barang</th>
-                        <th>Gambar</th>
-                        <th>Kategori</th>
-                        <th>UMKM</th>
+                        <th>Id Jasa Pengiriman</th>
+                        <th>Nama Jasa Pengiriman</th>
                         <th>Aksi</th>
                         <th>Aksi</th>
                     </tr>
@@ -28,29 +25,32 @@
 
             <?php 
             include '../config/koneksi.php';
-
-            $no = 1;           
-            $sql = "SELECT * FROM tb_barang, tb_kategori, tb_umkm
-                    WHERE tb_barang.id_kategori = tb_kategori.id_kategori
-                    AND tb_barang.id_umkm = tb_umkm.id_umkm";            
+            $no = 1;
+           
+            $sql = "SELECT * FROM tb_jasa_pengiriman";
+            
             $result = $koneksi->query($sql);
             ?>
+
+            <a href="index.php?halaman=tambah_jasa_kirim">
+                <button type="button" class="btn btn-default">
+                    <span class="glyphicon glyphicon-plus"></span> Tambah
+                </button>
+            </a>
+            <br><br>
 
                 <?php while ($row= $result->fetch_array()) {  ?>
                 <tr>
                     <td><?php echo $no ?></td>
-                    <td><?php echo $row['id_barang']; ?></td>
-                    <td><?php echo $row['nama_barang']; ?></td>
-                    <td><?php echo $row['gambar_barang']; ?></td>
-                    <td><?php echo $row['nama_kategori']; ?></td>
-                    <td><?php echo $row['nama_umkm']; ?></td>
+                    <td><?php echo $row['id_jasa_pengiriman']; ?></td>
+                    <td><?php echo $row['nama_jasa_pengiriman']; ?></td>
                     <td>
-                        <button type="submit" name="submit" class="btn btn-info" value="<?php echo $row['id_barang']; ?>">
-                            <i class="fa fa-info-circle fa-fw"></i>DETAIL
+                        <button type="submit" name="submit1" class="btn btn-warning" value="<?php echo $row['id_jasa_pengiriman']; ?>">
+                            <i class="fa fa-pencil-square fa-fw"></i>UBAH
                         </button>
                     </td>
                     <td>
-                        <button type="submit" name="submit1" class="btn btn-danger" value="<?php echo $row['id_barang']; ?>">
+                        <button type="submit" name="submit" class="btn btn-danger" value="<?php echo $row['id_jasa_pengiriman']; ?>">
                             <i class="fa fa-trash fa-fw"></i>HAPUS
                         </button>
                     </td>

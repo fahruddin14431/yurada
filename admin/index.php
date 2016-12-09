@@ -48,7 +48,7 @@ $nama_admin = $row['nama_admin'];
     <script src="../assets/jquery/jquery.min.js"></script>
 
     <!-- jQuery DataTables -->
-    <script src="../assets/datatables/js/jquery.dataTables.js"></script>
+    <script src="../assets/datatables/js/jquery.dataTables.min.js"></script>
 
     <!-- Data Tables JavaScript -->
     <script src="../assets/datatables/js/dataTables.bootstrap.js"></script>
@@ -113,11 +113,14 @@ $nama_admin = $row['nama_admin'];
                             <a href="index.php?halaman=manaje_kategori"><i class="fa fa-tags fa-fw"></i> Manaje Kategori Product </a>
                         </li>
                         <li>
+                            <a href="index.php?halaman=jasa_kirim"><i class="fa fa-motorcycle fa-fw"></i> Manaje Jasa Pengiriman</a>
+                        </li>
+                        <li>
                             <a href="index.php?halaman=manaje_keluhan"><i class="fa fa-comments fa-fw"></i> Manaje Keluhan Pelanggan </a>
                         </li>
                         <li>
                             <a href="index.php?halaman=manaje_bayar"><i class="fa fa-money fa-fw"></i> Manaje Pembayaran</a>
-                        </li>
+                        </li>                        
                         <li>
                             <a href="index.php?halaman=tracking"><i class="fa fa-truck fa-fw"></i> Tracking </a>
                         </li>
@@ -140,16 +143,26 @@ $nama_admin = $row['nama_admin'];
                 include 'acc_umkm.php';
             }else if($_GET['halaman']=="manaje_umkm"){
                 include 'manaje_umkm.php';
+            }else if($_GET['halaman']=="validasi_barang_detail"){
+                include 'validasi_barang_detail.php';
             }else if($_GET['halaman']=="validasi_barang"){
                 include 'validasi_barang.php';
-            }else if($_GET['halaman']=="kategori"){
-                include 'form_kategori.php';
-            }else if($_GET['halaman']=="manaje_kategori"){
-                include 'kategori.php';
             }else if($_GET['halaman']=="manaje_keluhan"){
                 include 'manaje_keluhan.php';
+            }else if($_GET['halaman']=="manaje_kategori"){
+                include 'kategori.php';
+            }else if($_GET['halaman']=="tambah_kategori"){
+                include 'kategori_form_tambah.php';
+            }else if($_GET['halaman']=="ubah_kategori"){
+                include 'kategori_form_ubah.php';
             }else if($_GET['halaman']=="manaje_bayar"){
                 include 'manaje_bayar.php';
+            }else if($_GET['halaman']=="jasa_kirim"){
+                include 'jasa_kirim.php';
+            }else if($_GET['halaman']=="tambah_jasa_kirim"){
+                include 'jasa_kirim_form_tambah.php';
+            }else if($_GET['halaman']=="ubah_jasa_kirim"){
+                include 'jasa_kirim_form_ubah.php';
             }else if($_GET['halaman']=="tracking"){
                 include '../pelanggan/tracking.php';
             }else{

@@ -1,6 +1,5 @@
 <?php 
 
-session_start();
 if (empty($_SESSION['id_pelanggan']) AND empty($_SESSION['id_admin'])) { ?>
    
     <div class="col-lg-12">

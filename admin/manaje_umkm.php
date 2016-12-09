@@ -10,7 +10,8 @@
                           
         <div class="box-body table-responsive">
 
-          <table id="tabel-data" class="table table-striped table-bordered" width="100%" cellspacing="0">
+        <form action="manaje_umkm_proses.php" method="GET">
+        <table id="tabel-data" class="table table-striped table-bordered" width="100%" cellspacing="0">
                 <thead>
                     <tr>
                         <th>No</th>
@@ -19,8 +20,7 @@
                         <th>Pemilik</th>
                         <th>Alamat UMKM</th>
                         <th>Deskripsi</th>
-                        <th> No.Telp</th>
-                        <th>Status</th>
+                        <th>No.Telp</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -30,7 +30,7 @@
             include '../config/koneksi.php';
             $no = 1;
            
-            $sql = "SELECT * FROM tb_umkm";
+            $sql = "SELECT * FROM tb_umkm WHERE status='1'";
             
             $result = $koneksi->query($sql);
             ?>
@@ -44,14 +44,16 @@
                     <td><?php echo $row['alamat_umkm']; ?></td>
                     <td><?php echo $row['deskripsi_umkm']; ?></td>
                     <td><?php echo $row['no_telfon']; ?></td>
-                    <td><?php echo $row['status']; ?></td>
-                    <td><a href="" onClick="return confirm('Data Akan Dihapus !')" class="btn btn-default">
-                    <span class="glyphicon glyphicon-trash"></span> Hapus</a>
+                    <td>
+                        <button type="submit" name="submit" class="btn btn-danger" value="<?php echo $row['id_umkm']; ?>">
+                            <i class="fa fa-trash fa-fw"></i>HAPUS
+                        </button>
                     </td>
                 </tr>
                 <?php $no++;} ?>
                 </tbody>
-            </table>
+        </table>
+        </form>
 
         </div>
         <script>
