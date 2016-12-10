@@ -1,7 +1,8 @@
 <!-- row -->
 <div class="row">
     <div class="col-lg-12">
-    <h2 class="page-header"><b> Daftar Kategori Product UMKM </b></h2>
+    <h2><b> Daftar Kategori Product UMKM </b></h2>
+    <hr>
 
     <div class="container-fluid">
         <div class="row">

@@ -37,6 +37,9 @@ $id_pelanggan = $_SESSION['id_pelanggan'];
     <!-- Custom Fonts -->
     <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
+    <!-- Helper Widget CSS -->
+    <link href="assets/helper/AdminLTE.min.css" rel="stylesheet">
+
     <!-- Sweet Alert -->
     <!-- <link href="assets/sweet-alert/sweetalert.css" rel="stylesheet" type="text/css"> -->
     <!-- <script type="text/javascript" src="assets/sweet-alert/sweetalert.js"></script> -->
@@ -115,6 +118,7 @@ $id_pelanggan = $_SESSION['id_pelanggan'];
                         <i class="fa fa-sign-in fa-fw"></i>
                     </a>
                 </li>
+                
                 <?php }else{ ?>
                     <li>
                         <?php 
@@ -124,7 +128,10 @@ $id_pelanggan = $_SESSION['id_pelanggan'];
                         $row = $result->fetch_array();
 
                          ?>
-                        <?php echo $row['nama_pelanggan']; ?>
+                        
+                        <a class="dropdown-toggle"  href="index.php?halaman=profil&id_pelanggan=<?php echo $row['nama_pelanggan']; ?>">
+                            <?php echo $row['nama_pelanggan']; ?>
+                        </a>
                     </li>
                     <li>
                         <a class="dropdown-toggle"  href="logout.php">
@@ -133,6 +140,7 @@ $id_pelanggan = $_SESSION['id_pelanggan'];
                     </li>
                 <?php } ?>
                 <!-- /.dropdown -->
+
             </ul>
             <!-- /.navbar-top-links -->
 
@@ -195,6 +203,10 @@ $id_pelanggan = $_SESSION['id_pelanggan'];
                 include 'umkm/form_daftar_umkm.php';
             }else if($_GET['halaman']=="daftar_pelanggan"){
                 include 'pelanggan/form_daftar_pelanggan.php';
+            }else if($_GET['halaman']=="profil"){
+                include 'pelanggan/profil.php';
+            }else if($_GET['halaman']=="form_profil"){
+                include 'pelanggan/form_profil.php';
             }else if($_GET['halaman']=="login"){
                 include 'form_login.php';
             }else if($_GET['halaman']=="service"){

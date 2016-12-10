@@ -1,7 +1,8 @@
 <!-- row -->
 <div class="row">
     <div class="col-lg-12">
-    <h2 class="page-header"><b>Manajemen Pemesanan & Pembayaran Product </b></h2>
+    <h2><b>Manajemen Pemesanan & Pembayaran Product </b></h2>
+    <hr>
 
     <div class="container-fluid">
         <div class="row">
@@ -21,7 +22,6 @@
                         <th> Id Pembayaran</th>
                         <th>Nama Bank</th>
                         <th>Bukti Pembayaran</th>
-                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -45,9 +45,6 @@
                     <td><?php echo $row['id_pembayaran']; ?></td>
                     <td><?php echo $row['nama_bank']; ?></td>
                     <td><?php echo $row['bukti_pembayaran']; ?></td>
-                    <td><a href="" onClick="return confirm('Data Akan Dihapus !')" class="btn btn-default">
-                    <span class="glyphicon glyphicon-trash"></span> Hapus</a>
-                    </td>
                 </tr>
                 <?php $no++;} ?>
                 </tbody>

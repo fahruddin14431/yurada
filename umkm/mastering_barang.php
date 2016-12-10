@@ -1,7 +1,8 @@
 <!-- row -->
 <div class="row">
     <div class="col-lg-12">
-    <h2 class="page-header"><b>Daftar Product </b></h2>
+    <h2><b>Daftar Product </b></h2>
+    <hr>
     
     <div class="container-fluid">
         <div class="row">
@@ -21,6 +22,7 @@
                         <th>Jumlah</th>
                         <th>Harga/Pcs</th>
                         <th>Aksi</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -33,7 +35,7 @@
             
             $result = $koneksi->query($sql);
             ?>
-            <a href="index_umkm.php?halaman=tambah_barang">
+            <a href="index.php?halaman=tambah_barang">
             <button type="button" class="btn btn-default">
             <span class="glyphicon glyphicon-plus"></span> Tambah
             </button>
@@ -48,8 +50,15 @@
                     <td><?php echo $row['nama_kategori']; ?></td>
                     <td><?php echo $row['jumlah_stok']; ?></td>
                     <td><?php echo $row['harga_barang']; ?></td>
-                    <td><a href="" onClick="return confirm('Data Akan Dihapus !')" class="btn btn-default">
-                    <span class="glyphicon glyphicon-trash"></span> Hapus</a>
+                    <td>
+                        <a href="" class="btn btn-warning">
+                            <span class="glyphicon glyphicon-edit"></span> Edit 
+                        </a>
+                    </td>
+                    <td>               
+                        <a href="" onClick="return confirm('Data Akan Dihapus !')" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-trash"></span> Hapus
+                        </a>
                     </td>
                 </tr>
                 <?php $no++;} ?>

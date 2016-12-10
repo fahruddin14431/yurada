@@ -1,14 +1,15 @@
 <!-- row -->
 <div class="row">
     <div class="col-lg-12">
-    <h2 class="page-header"><b> Pendaftar UMKM Baru </b></h2>
+    <h2><b> Pendaftar UMKM Baru </b></h2>
+    <hr>
 
     <div class="container-fluid">
         <div class="row">
         <div class="col-lg-12">
         <div class="box box-primary">
                           
-        <div class="table-responsive">
+        <div class="box-body table-responsive">
             <form action="acc_umkm_proses.php" method="GET">
             <table id="tabel-data" class="table table-striped table-bordered" width="100%" cellspacing="0">
                 <thead>

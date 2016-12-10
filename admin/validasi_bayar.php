@@ -1,7 +1,7 @@
 <!-- row -->
 <div class="row">
     <div class="col-lg-12">
-    <h2><b> Daftar UMKM  Dalam Situs</b></h2>
+    <h2><b> Validasi Pembayaran UMKM </b></h2>
     <hr>
 
     <div class="container-fluid">
@@ -11,17 +11,17 @@
                           
         <div class="box-body table-responsive">
 
-        <form action="manaje_umkm_proses.php" method="GET">
+        <form action="#" method="GET">
         <table id="tabel-data" class="table table-striped table-bordered" width="100%" cellspacing="0">
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Id UMKM</th>
-                        <th>Nama UMKM</th>
-                        <th>Pemilik</th>
-                        <th>Alamat UMKM</th>
-                        <th>Deskripsi</th>
-                        <th>No.Telp</th>
+                        <th>ID Pembayaran</th>
+                        <th>ID Pesan</th>
+                        <th>ID Pelanggan</th>
+                        <th>Tanggal</th>
+                        <th>Total Transaksi</th>
+                        <th>Bukti Pembayaran</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -29,32 +29,33 @@
 
             <?php 
             include '../config/koneksi.php';
-            $no = 1;
-           
-            $sql = "SELECT * FROM tb_umkm WHERE status='1'";
-            
+
+            $no = 1;           
+            $sql = "SELECT * FROM tb_barang, tb_kategori, tb_umkm
+                    WHERE tb_barang.id_kategori = tb_kategori.id_kategori
+                    AND tb_barang.id_umkm = tb_umkm.id_umkm";            
             $result = $koneksi->query($sql);
             ?>
 
                 <?php while ($row= $result->fetch_array()) {  ?>
                 <tr>
                     <td><?php echo $no ?></td>
-                    <td><?php echo $row['id_umkm']; ?></td>
+                    <td><?php echo $row['id_barang']; ?></td>
+                    <td><?php echo $row['nama_barang']; ?></td>
+                    <td><?php echo $row['gambar_barang']; ?></td>
+                    <td><?php echo $row['nama_kategori']; ?></td>
                     <td><?php echo $row['nama_umkm']; ?></td>
-                    <td><?php echo $row['nama_pemilik']; ?></td>
-                    <td><?php echo $row['alamat_umkm']; ?></td>
-                    <td><?php echo $row['deskripsi_umkm']; ?></td>
-                    <td><?php echo $row['no_telfon']; ?></td>
+                    <td>Gambar</td>
                     <td>
-                        <button type="submit" name="submit" class="btn btn-danger" value="<?php echo $row['id_umkm']; ?>">
-                            <i class="fa fa-trash fa-fw"></i>HAPUS
+                        <button type="submit" name="submit" class="btn btn-success" value="<?php echo $row['id_barang']; ?>">
+                            <i class="fa fa-check fa-fw"></i> Valid
                         </button>
-                    </td>
+                    </td>                
                 </tr>
                 <?php $no++;} ?>
                 </tbody>
-        </table>
-        </form>
+            </table>
+            </form>
 
         </div>
         <script>

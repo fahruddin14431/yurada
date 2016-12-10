@@ -1,15 +1,14 @@
 <!-- row -->
 <div class="row">
     <div class="col-lg-12">
-        <!--row-->
-        <div class="row">
-            <div class="col-lg-4">
-                <h3 class="page-header"><b>Detail Product</b></h3>
-                <img src="img/img01.jpg" width="330" height="350">
-            </div>
+        <h2>Profil Pelanggan</h2>
+        <hr>
+        <div class="col-lg-4">
+            <img src="../img/user.png" height="250" width="250">
+        </div>
+        <div class="col-lg-8">
 
-            <div class="col-lg-8">
-                <!-- panel info -->
+            <!-- panel info -->
             <div class="panel-info">
                 <div class="panel-heading"><b>Profil Anda</b>
                 </div>
@@ -17,93 +16,93 @@
                     <table class="table table-hover">
                         <tr>
                             <td>
-                                <label> Nama Barang</label>
+                                <label> ID Pelanggan</label>
                             </td>
                             <td>
                                 <label> : </label>
                             </td>
                             <td>
-                                <label> aaa</label>
+                                <label> bla bla</label>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <label> Bahan</label>
+                                <label> Nama Pelanggan</label>
                             </td>
                             <td>
                                 <label> : </label>
                             </td>
                             <td>
-                                <label> ooo </label>
+                                <label> </label>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <label> Kategori</label>
+                                <label> Alamat</label>
                             </td>
                             <td>
                                 <label> : </label>
                             </td>
                             <td>
-                                <label> bbb</label>
+                                <label> </label>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <label> Jumlah Stok</label>
+                                <label> kota</label>
                             </td>
                             <td>
                                 <label> : </label>
                             </td>
                             <td>
-                                <label> 111 </label>
+                                <label> </label>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <label> Spesifikasi</label>
+                                <label> provinsi</label>
                             </td>
                             <td>
                                 <label> : </label>
                             </td>
                             <td>
-                                <label> diameter, panjang, lebar</label>
+                                <label> </label>
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="2" align="right">
-                                <div class="form-group">
-                                <button href="index.php?halaman=checkout" type="submit" class="btn btn-info" > Beli Product </button>
-                                </div>
+                            <td>
+                                <label> No.Telfon</label>
                             </td>
                             <td>
-                                <div class="form-group">
-                                <button href="index.php?halaman=shoppingcart" type="submit" class="btn btn-info" > Shopingcart </button>
-                                </div>
+                                <label> : </label>
                             </td>
+                            <td>
+                                <label> </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label> Email</label>
+                            </td>
+                            <td>
+                                <label> : </label>
+                            </td>
+                            <td>
+                                <label> </label>
+                            </td>
+                        </tr>
+                        <tr align="center">
+                            <td colspan="3">
+                                <button href="index.php?halaman=form_profil" type="submit" class="btn btn-info" >  Edit Profil </button>
+                            </td>
+                            
                         </tr>
                     </table>
                 </div>
             </div>
             <!-- /panel info -->
-          </div>
+            
         </div>
-        <!--end row-->
-
-        <div class="row">
-            <div class="col-lg-12">
-                <h6 class-"page-header">Testimoni</h6>
-                <div class="form-group">
-                    <label>Komentar : </label>
-                    <textarea class="form-control" rows="3" placeholder="Komentar"></textarea>
-                </div>
-                <div class="panel penel-green">
-                    <p>email</p> <br>
-                    <p>isi komentar</p>
-                </div>
-            </div>           
-        </div>  
-
     </div>
 </div>
 <!-- end row -->

@@ -41,6 +41,9 @@ $nama_umkm = $row['nama_umkm'];
     <!-- Custom CSS -->
     <link href="../assets/dist/css/sb-admin-2.css" rel="stylesheet">
 
+    <!-- Helper Widget CSS -->
+    <link href="../assets/helper/AdminLTE.min.css" rel="stylesheet">
+
     <!-- Custom Fonts -->
     <link href="../assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -150,7 +153,7 @@ $nama_umkm = $row['nama_umkm'];
             }else if($_GET['halaman']=="manaje_kiriman"){
                 include 'manaje_kiriman.php';
             }else if($_GET['halaman']=="tambah_barang"){
-                include 'tambah_barang.php';
+                include 'barang_form_tambah.php';
             }else if($_GET['halaman']=="profil"){
                 include 'profil.php';
             }else{

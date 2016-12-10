@@ -1,7 +1,8 @@
 <!-- row -->
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Service</h1>
+        <h2>Service</h2>
+        <hr>
         
     </div>
 </div>

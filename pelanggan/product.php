@@ -1,7 +1,9 @@
 <!-- row -->
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">List Product</h1>
+        <h2>List Product</h2>
+        <hr>
+        
         <div class="col-lg-3">
             <div class="panel panel-green" align="center">
                 <div class="panel-footer">

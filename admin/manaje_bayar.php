@@ -1,7 +1,8 @@
 <!-- row -->
 <div class="row">
     <div class="col-lg-12">
-    <h2 class="page-header"><b> Daftar Transaksi </b></h2>
+    <h2><b> Daftar Transaksi </b></h2>
+    <hr>
 
     <div class="container-fluid">
         <div class="row">
@@ -45,7 +46,10 @@
                     <td><?php echo $row['total_transaksi']; ?></td>
                     <td><?php echo $row['no_resi']; ?></td>
                     <td><?php echo $row['status']; ?></td>
-                    <td><a href="" onClick="return confirm('Data Akan Dihapus !')" class="btn btn-default">
+                    <td>
+                    <a href="" onClick="return confirm('Data Akan Dihapus !')" class="btn btn-default">
+                    <span class="glyphicon glyphicon-edit"></span> Edit</a>
+                    a href="" onClick="return confirm('Data Akan Dihapus !')" class="btn btn-default">
                     <span class="glyphicon glyphicon-trash"></span> Hapus</a>
                     </td>
                 </tr>

@@ -25,10 +25,6 @@ if (empty($_SESSION['id_pelanggan']) AND empty($_SESSION['id_admin'])) { ?>
                 <form role="form">
                     <fieldset>
                         <div class="form-group">
-                            <label>E-mail</label>
-                            <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
-                        </div>
-                        <div class="form-group">
                             <label> No.Resi </label>
                             <input class="form-control" placeholder="Resi" name="resi" type="text">
                         </div>

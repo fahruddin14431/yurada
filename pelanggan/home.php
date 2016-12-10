@@ -30,7 +30,7 @@
         <div class="col-lg-3">
             <div class="panel panel-green" align="center">
                 <div class="panel-footer">
-                    <img  src="img/cl.png" width="100" height="200">
+                    <img  src="img/img01.jpg" width="200" height="200">
                 </div>
                 <div class="panel-footer">
                     <a href="" style="text-decoration:none"><i class="fa fa-tags fa-fw"></i> Detail Produk </a>
@@ -41,7 +41,7 @@
         <div class="col-lg-3">
             <div class="panel panel-green" align="center">
                 <div class="panel-footer">
-                    <img  src="img/cl.png" width="100" height="200">
+                    <img  src="img/img02.jpg" width="200" height="200">
                 </div>
                 <div class="panel-footer">
                     <a href="" style="text-decoration:none"><i class="fa fa-tags fa-fw"></i> Detail Produk </a>
@@ -52,7 +52,7 @@
         <div class="col-lg-3">
             <div class="panel panel-green" align="center">
                 <div class="panel-footer">
-                    <img  src="img/cl.png" width="100" height="200">
+                    <img  src="img/img03.jpg" width="200" height="200">
                 </div>
                 <div class="panel-footer">
                     <a href="" style="text-decoration:none"><i class="fa fa-tags fa-fw"></i> Detail Produk </a>

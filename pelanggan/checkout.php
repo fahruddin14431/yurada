@@ -18,7 +18,8 @@ if (empty($_SESSION['id_pelanggan'])) { ?>
 <!-- row -->
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Checkout</h1>
+        <h2>Checkout</h2>
+        <hr>
         <div class="col-lg-12">
         <div class="panel panel-info">
             <div class="panel-heading">
@@ -44,26 +45,25 @@ if (empty($_SESSION['id_pelanggan'])) { ?>
                                 <input class="form-control" placeholder="Nomor" name="nama" type="text" >
                             </div>
                             <div class="form-group">
-                                <label>Alamat</label>
-                                <textarea class="form-control" rows="3" placeholder="Alamat"></textarea>
-                            </div>
-                            <div class="form-inline">
-                                <div class="form-group">
-                                    <label>Kota</label>
-                                    <select class="form-control">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
                                     <div class="form-group">
-                                    <label>Kode Pos</label>
+                                    <label>Provinsi</label>
                                     <select class="form-control">
                                     <option>1</option>
                                     <option>2</option>
                                     </select>
                                     </div>
                                 </div>
+                            <div class="form-group">
+                                    <label>Kota</label>
+                                    <select class="form-control">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    </select>
+                                </div>
+                                
+                            <div class="form-group">
+                                <label>Alamat</label>
+                                <textarea class="form-control" rows="3" placeholder="Alamat"></textarea>
                             </div>
                             <div class="form-group">
                                 <label>Notes</label>

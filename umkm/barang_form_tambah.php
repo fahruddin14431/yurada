@@ -30,6 +30,10 @@
                                 <textarea class="form-control" rows="3" > Detail </textarea>
                             </div>
                             <div class="form-group">
+                                <label>Gambar Product</label>
+                                <input class="form-control" placeholder="gambar" name="gambar" type="file" >
+                            </div>
+                            <div class="form-group">
                                 <button href="" type="submit" class="btn btn-info" >  Simpan  </button>
                             </div>
                         </form>

@@ -1,7 +1,8 @@
 <!-- row -->
 <div class="row">
     <div class="col-lg-12">
-    <h2 class="page-header"><b>Manajemen Pengiriman Barang </b></h2>
+    <h2><b>Manajemen Pengiriman Barang </b></h2>
+    <hr>
 
     <div class="container-fluid">
         <div class="row">
@@ -46,7 +47,9 @@
                     <td><a href="" class="btn btn-default">
                     <span class="glyphicon glyphicon-edit"></span> Ubah </a>
                     </td>
-                    <td><a href="" onClick="return confirm('Data Akan Dihapus !')" class="btn btn-default">
+                    <td><a href="" class="btn btn-default">
+                    <span class="glyphicon glyphicon-edit"></span> Edit </a>
+                    <a href="" onClick="return confirm('Data Akan Dihapus !')" class="btn btn-default">
                     <span class="glyphicon glyphicon-trash"></span> Hapus</a>
                     </td>
                 </tr>

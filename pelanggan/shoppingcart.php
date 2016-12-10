@@ -18,7 +18,8 @@ if (empty($_SESSION['id_pelanggan'])) { ?>
 <!-- row -->
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Shopping Cart</h1>
+        <h2>Shopping Cart</h2>
+        <hr>
         <div class="row">
     <div class="col-lg-12">
         <div class="panel panel-info">
@@ -45,7 +46,9 @@ if (empty($_SESSION['id_pelanggan'])) { ?>
                                 <td>2</td>
                                 <td>2500</td>
                                 <td>5000</td>
-                                <td>ulangi pesanan/batal</td>
+                                <td>
+                                    <button href="index.php?halaman=form_profil" type="submit" class="btn btn-info" >  Batal </button>
+                                </td>
                             </tr>
                             <tr>
                                 <td colspan="4" align="right">Jumlah</td>
@@ -56,7 +59,13 @@ if (empty($_SESSION['id_pelanggan'])) { ?>
                 </div>
             </div>
         </div>
+        
     </div>
+    <div class="col-md-offset-10">
+            <button href="index.php?halaman=checkout" type="submit" class="btn btn-info" >  Checkout </button>
+
+    </div>
+
     </div>
 </div>
 <!-- end row -->

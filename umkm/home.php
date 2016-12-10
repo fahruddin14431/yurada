@@ -13,7 +13,8 @@ $nama_umkm = $row['nama_umkm'];
 <!-- row -->
 <div class="row">
     <div class="col-lg-12">
-      <h2 class="page-header"><b>Selamat Datang UMKM : <?php echo $nama_umkm; ?></b></h1>
+      <h2><b>Selamat Datang UMKM : <?php echo $nama_umkm; ?></b></h2>
+      <hr>
     </div>
 </div>
 <!-- end row -->

@@ -1,7 +1,8 @@
 <!-- row -->
 <div class="row">
     <div class="col-lg-12">
-    <h2 class="page-header"><b> Validasi Product UMKM </b></h2>
+    <h2><b> Validasi Product UMKM </b></h2>
+    <hr>
 
     <div class="container-fluid">
         <div class="row">
@@ -20,7 +21,6 @@
                         <th>Gambar</th>
                         <th>Kategori</th>
                         <th>UMKM</th>
-                        <th>Aksi</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>

@@ -1,7 +1,8 @@
 <!-- row -->
 <div class="row">
     <div class="col-lg-12">
-        <h2 class="page-header">Profil UMKM YURADA.com</h2>
+        <h2>Profil UMKM YURADA.com</h2>
+        <hr>
         <div class="col-lg-4">
             <img src="../img/user.png" height="250" width="250">
         </div>

@@ -41,6 +41,9 @@ $nama_admin = $row['nama_admin'];
     <!-- Custom CSS -->
     <link href="../assets/dist/css/sb-admin-2.css" rel="stylesheet">
 
+    <!-- Helper Widget CSS -->
+    <link href="../assets/helper/AdminLTE.min.css" rel="stylesheet">
+
     <!-- Custom Fonts -->
     <link href="../assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -116,11 +119,14 @@ $nama_admin = $row['nama_admin'];
                             <a href="index.php?halaman=jasa_kirim"><i class="fa fa-motorcycle fa-fw"></i> Manaje Jasa Pengiriman</a>
                         </li>
                         <li>
-                            <a href="index.php?halaman=manaje_keluhan"><i class="fa fa-comments fa-fw"></i> Manaje Keluhan Pelanggan </a>
+                            <a href="index.php?halaman=validasi_bayar"><i class="fa fa-check-square fa-fw"></i> Validasi Pembayaran </a>
                         </li>
                         <li>
-                            <a href="index.php?halaman=manaje_bayar"><i class="fa fa-money fa-fw"></i> Manaje Pembayaran</a>
-                        </li>                        
+                            <a href="index.php?halaman=manaje_bayar"><i class="fa fa-money fa-fw"></i> Manaje Pengiriman</a>
+                        </li>  
+                        <li>
+                            <a href="index.php?halaman=manaje_keluhan"><i class="fa fa-comments fa-fw"></i> Manaje Keluhan Pelanggan </a>
+                        </li>                      
                         <li>
                             <a href="index.php?halaman=tracking"><i class="fa fa-truck fa-fw"></i> Tracking </a>
                         </li>
@@ -155,6 +161,8 @@ $nama_admin = $row['nama_admin'];
                 include 'kategori_form_tambah.php';
             }else if($_GET['halaman']=="ubah_kategori"){
                 include 'kategori_form_ubah.php';
+            }else if($_GET['halaman']=="validasi_bayar"){
+                include 'validasi_bayar.php';
             }else if($_GET['halaman']=="manaje_bayar"){
                 include 'manaje_bayar.php';
             }else if($_GET['halaman']=="jasa_kirim"){
