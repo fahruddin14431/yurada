@@ -44,7 +44,8 @@
                     <td><?php echo $row['alamat_umkm']; ?></td>
                     <td><?php echo $row['deskripsi_umkm']; ?></td>
                     <td><?php echo $row['no_telfon']; ?></td>
-                    <td><button type="submit" name="submit" class="btn btn-success" value="<?php echo $row['id_umkm']; ?>">
+                    <td>
+                        <button type="submit" name="submit" class="btn btn-success" value="<?php echo $row['id_umkm']; ?>">
                         <i class="fa fa-check-square fa-fw"></i> ACC
                         </button>
                     </td>
@@ -67,17 +68,3 @@
 </div>
 </div>
 <!-- end row -->
-
-<?php 
-
-// include '../config/koneksi.php';
-
-// if (isset($_GET['id_umkm'])) {
-//     $id_umkm = $_GET['id_umkm'];
-//     echo $id_umkm;
-//     $sql = "UPDATE tb_umkm SET status='1' WHERE id_umkm='$id_umkm'";
-//     $result = $koneksi->query($sql);    
-//     header("location:index.php?halaman=home");
-// }
-
-//  ?>

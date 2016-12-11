@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 06 Des 2016 pada 12.30
+-- Generation Time: 11 Des 2016 pada 12.02
 -- Versi Server: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -37,6 +37,13 @@ CREATE TABLE `tb_admin` (
   `kata_sandi` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `tb_admin`
+--
+
+INSERT INTO `tb_admin` (`id_admin`, `nama_admin`, `jenis_kelamin`, `alamat`, `no_telfon`, `email`, `nama_pengguna`, `kata_sandi`) VALUES
+('ADM101', 'Habibi', 'L', 'Jl KH Ahmad Dahlan ', '085855449666', 'yusufudin14431@gmail.com', 'Habibi', 'de33fd244a6f5f46707db201e82c9356e07d622c');
+
 -- --------------------------------------------------------
 
 --
@@ -47,6 +54,13 @@ CREATE TABLE `tb_bank` (
   `id_bank` varchar(10) NOT NULL,
   `nama_bank` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tb_bank`
+--
+
+INSERT INTO `tb_bank` (`id_bank`, `nama_bank`) VALUES
+('B101', 'BCA');
 
 -- --------------------------------------------------------
 
@@ -65,6 +79,13 @@ CREATE TABLE `tb_barang` (
   `spesifikasi_barang` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `tb_barang`
+--
+
+INSERT INTO `tb_barang` (`id_barang`, `id_umkm`, `nama_barang`, `id_kategori`, `harga_barang`, `jumlah_stok`, `gambar_barang`, `spesifikasi_barang`) VALUES
+('asdf', 'UMKM0301102', 'asdf', '13', 1234124, 11, 'asdfdsdv', 'asdfasdf');
+
 -- --------------------------------------------------------
 
 --
@@ -75,14 +96,6 @@ CREATE TABLE `tb_detail_jasa_pengiriman` (
   `id_jasa_pengiriman` varchar(5) NOT NULL,
   `id_umkm` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `tb_detail_jasa_pengiriman`
---
-
-INSERT INTO `tb_detail_jasa_pengiriman` (`id_jasa_pengiriman`, `id_umkm`) VALUES
-('JP01', 'UMKM0103101'),
-('JP02', 'UMKM0103101');
 
 -- --------------------------------------------------------
 
@@ -96,6 +109,13 @@ CREATE TABLE `tb_detail_pesan` (
   `jumlah_pesan` int(11) NOT NULL,
   `sub_total` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tb_detail_pesan`
+--
+
+INSERT INTO `tb_detail_pesan` (`id_pesan`, `id_barang`, `jumlah_pesan`, `sub_total`) VALUES
+('P001', 'asdf', 10, 1000);
 
 -- --------------------------------------------------------
 
@@ -113,9 +133,10 @@ CREATE TABLE `tb_jasa_pengiriman` (
 --
 
 INSERT INTO `tb_jasa_pengiriman` (`id_jasa_pengiriman`, `nama_jasa_pengiriman`) VALUES
-('JP01', 'JNE'),
-('JP02', 'TIKI'),
-('JP03', 'POS');
+('JP101', 'JNE'),
+('JP102', 'TIKI'),
+('JP103', 'POS'),
+('JP104', 'ALHAMDULILLAH');
 
 -- --------------------------------------------------------
 
@@ -127,6 +148,15 @@ CREATE TABLE `tb_kategori` (
   `id_kategori` varchar(5) NOT NULL,
   `nama_kategori` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tb_kategori`
+--
+
+INSERT INTO `tb_kategori` (`id_kategori`, `nama_kategori`) VALUES
+('13', 'subhanalloh Alhamdulilah'),
+('14', 'man'),
+('15', 'bismillah');
 
 -- --------------------------------------------------------
 
@@ -505,8 +535,16 @@ CREATE TABLE `tb_pembayaran` (
   `id_pesan` varchar(10) NOT NULL,
   `total_transaksi` double NOT NULL,
   `no_resi` varchar(50) NOT NULL,
-  `bukti_pembayaran` varchar(50) NOT NULL
+  `bukti_pembayaran` varchar(200) NOT NULL,
+  `status` enum('0','1') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tb_pembayaran`
+--
+
+INSERT INTO `tb_pembayaran` (`id_pembayaran`, `id_pesan`, `total_transaksi`, `no_resi`, `bukti_pembayaran`, `status`) VALUES
+('pem001', 'P001', 20000, '1', 'asdasdfasdfasdf', '0');
 
 -- --------------------------------------------------------
 
@@ -518,8 +556,19 @@ CREATE TABLE `tb_pesan` (
   `id_pesan` varchar(10) NOT NULL,
   `id_pelanggan` varchar(10) NOT NULL,
   `tanggal_pesan` date NOT NULL,
-  `total_biaya` double NOT NULL
+  `total_biaya` double NOT NULL,
+  `alamat` text NOT NULL,
+  `id_kota` varchar(5) NOT NULL,
+  `id_provinsi` varchar(5) NOT NULL,
+  `catatan` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tb_pesan`
+--
+
+INSERT INTO `tb_pesan` (`id_pesan`, `id_pelanggan`, `tanggal_pesan`, `total_biaya`, `alamat`, `id_kota`, `id_provinsi`, `catatan`) VALUES
+('P001', 'PEL1604101', '2016-12-10', 20000, 'JL jlan', '0102', '16', 'asdsadf');
 
 -- --------------------------------------------------------
 
@@ -584,6 +633,13 @@ CREATE TABLE `tb_rekening` (
   `no_rekening` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `tb_rekening`
+--
+
+INSERT INTO `tb_rekening` (`id_umkm`, `id_bank`, `no_rekening`) VALUES
+('UMKM0301102', 'B101', '9091092102910291091212');
+
 -- --------------------------------------------------------
 
 --
@@ -610,7 +666,8 @@ CREATE TABLE `tb_umkm` (
 --
 
 INSERT INTO `tb_umkm` (`id_umkm`, `nama_umkm`, `nama_pemilik`, `alamat_umkm`, `id_kota`, `id_provinsi`, `email`, `no_telfon`, `deskripsi_umkm`, `nama_pengguna`, `kata_sandi`, `status`) VALUES
-('UMKM0103101', 'Irwan pom pom', 'Irwan Darmawan', 'Jl Sumber Butuh', '0103', '01', 'yusufudin14431@gmail.com', '085855449666', 'as', 'Irwan', 'de33fd244a6f5f46707db201e82c9356e07d622c', '0');
+('UMKM0301102', 'Yusuf emas muda', 'Yusuf Rahmad', 'Jl KH Ahmad Dahlan', '0301', '03', 'yusufudin20@yahoo.co.id', '085855449661', 'as', 'Yusuf', 'de33fd244a6f5f46707db201e82c9356e07d622c', '1'),
+('UMKM0703103', 'Elvira shop', 'Elvira Linardi', 'Jl Sumber Gempol', '0703', '07', 'yusufudin20@yahoo.com', '085855449690', 'asdf', 'Elvira', 'de33fd244a6f5f46707db201e82c9356e07d622c', '1');
 
 --
 -- Indexes for dumped tables
@@ -689,7 +746,9 @@ ALTER TABLE `tb_pembayaran`
 --
 ALTER TABLE `tb_pesan`
   ADD PRIMARY KEY (`id_pesan`),
-  ADD KEY `id_pelanggan` (`id_pelanggan`);
+  ADD KEY `id_pelanggan` (`id_pelanggan`),
+  ADD KEY `id_kota` (`id_kota`),
+  ADD KEY `id_provinsi` (`id_provinsi`);
 
 --
 -- Indexes for table `tb_provinsi`
@@ -760,7 +819,9 @@ ALTER TABLE `tb_pembayaran`
 -- Ketidakleluasaan untuk tabel `tb_pesan`
 --
 ALTER TABLE `tb_pesan`
-  ADD CONSTRAINT `tb_pesan_ibfk_1` FOREIGN KEY (`id_pelanggan`) REFERENCES `tb_pelanggan` (`id_pelanggan`);
+  ADD CONSTRAINT `tb_pesan_ibfk_1` FOREIGN KEY (`id_pelanggan`) REFERENCES `tb_pelanggan` (`id_pelanggan`),
+  ADD CONSTRAINT `tb_pesan_ibfk_2` FOREIGN KEY (`id_kota`) REFERENCES `tb_kota` (`id_kota`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tb_pesan_ibfk_3` FOREIGN KEY (`id_provinsi`) REFERENCES `tb_provinsi` (`id_provinsi`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `tb_rekening`

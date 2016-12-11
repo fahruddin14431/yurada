@@ -118,6 +118,32 @@ $nama_admin = $row['nama_admin'];
 	        </div>
 	        <!-- ends cols -->
 
+	         <?php  
+
+	      	$sql = "SELECT COUNT(id_pembayaran) FROM tb_pembayaran WHERE status='0';";
+	      	$result = $koneksi->query($sql);
+	      	$row = $result->fetch_array();
+	      	$validasi_bayar = $row[0];
+
+	      	?>
+
+	        <div class="col-lg-3 col-xs-6">
+	          <!-- small box -->
+	          <div class="small-box bg-red">
+	            <div class="inner">
+	              <h3><?php echo $validasi_bayar; ?></h3>
+
+	              <p>Pembayaran Belum di Validasi</p>
+	            </div>
+	            <div class="icon">
+	              <i class="fa fa-check"></i>
+	            </div>
+	            <a href="index.php?halaman=validasi_bayar" class="small-box-footer">Info Selanjutnya <i class="fa fa-arrow-circle-right"></i></a>
+	          </div>
+	          <!-- ends small box -->
+	        </div>
+	        <!-- ends cols -->
+
 	        <?php  
 
 	      	$sql = "SELECT COUNT(id_kategori) FROM tb_kategori";
@@ -129,7 +155,7 @@ $nama_admin = $row['nama_admin'];
 
 	        <div class="col-lg-3 col-xs-6">
 	          <!-- small box -->
-	          <div class="small-box bg-purple">
+	          <div class="small-box bg-yellow">
 	            <div class="inner">
 	              <h3><?php echo $jumlah_kategori; ?></h3>
 
