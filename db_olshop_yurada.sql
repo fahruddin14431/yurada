@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 11 Des 2016 pada 12.02
+-- Generation Time: 13 Des 2016 pada 03.07
 -- Versi Server: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -34,15 +34,16 @@ CREATE TABLE `tb_admin` (
   `no_telfon` varchar(12) NOT NULL,
   `email` varchar(50) NOT NULL,
   `nama_pengguna` varchar(30) NOT NULL,
-  `kata_sandi` varchar(50) NOT NULL
+  `kata_sandi` varchar(50) NOT NULL,
+  `no_rekening` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `tb_admin`
 --
 
-INSERT INTO `tb_admin` (`id_admin`, `nama_admin`, `jenis_kelamin`, `alamat`, `no_telfon`, `email`, `nama_pengguna`, `kata_sandi`) VALUES
-('ADM101', 'Habibi', 'L', 'Jl KH Ahmad Dahlan ', '085855449666', 'yusufudin14431@gmail.com', 'Habibi', 'de33fd244a6f5f46707db201e82c9356e07d622c');
+INSERT INTO `tb_admin` (`id_admin`, `nama_admin`, `jenis_kelamin`, `alamat`, `no_telfon`, `email`, `nama_pengguna`, `kata_sandi`, `no_rekening`) VALUES
+('ADM101', 'Habibi', 'L', 'Jl KH Ahmad Dahlan ', '085855449666', 'yusufudin14431@gmail.com', 'Habibi', 'de33fd244a6f5f46707db201e82c9356e07d622c', '');
 
 -- --------------------------------------------------------
 
@@ -544,7 +545,7 @@ CREATE TABLE `tb_pembayaran` (
 --
 
 INSERT INTO `tb_pembayaran` (`id_pembayaran`, `id_pesan`, `total_transaksi`, `no_resi`, `bukti_pembayaran`, `status`) VALUES
-('pem001', 'P001', 20000, '1', 'asdasdfasdfasdf', '0');
+('pem001', 'P001', 20000, '1', 'asdasdfasdfasdf', '1');
 
 -- --------------------------------------------------------
 
