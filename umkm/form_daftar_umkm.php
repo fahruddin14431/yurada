@@ -93,6 +93,23 @@ $(document).ready(function(){
                                 <?php } ?>
                             </div>
                             <div class="form-group">
+                                <label>Bank</label>
+                                <select name="id_bank" class="form-control" required>
+                                    <option>--Pilih Bank--</option>
+                                        <?php
+                                        //mengambil nama-nama bank yang ada di database
+                                        $result = $koneksi->query("SELECT * FROM tb_bank");
+                                        while ($row = $result->fetch_array()){ ?>
+                                            <option value="<?php echo $row['id_bank'] ?>"><?php echo $row['nama_bank']; ?></option>
+                                        <?php } ?>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>No Rekening</label>
+                                <input class="form-control" placeholder="No Rekening" name="no_rek" type="text" required>
+                            </div>
+                            <div class="form-group">
                                 <label>Kata Sandi</label>
                                 <input class="form-control" placeholder="Kata Sandi" name="kata_sandi" type="password" maxlength="50" required>
                             </div>

@@ -1,20 +1,29 @@
 <!-- row -->
+<?php 
+include 'config/koneksi.php';
+$id_barang =  $_GET['id_barang'];
+$sql = "SELECT tb_barang.nama_barang, tb_barang.jumlah_stok, tb_barang.spesifikasi_barang, tb_barang.gambar_barang, tb_kategori.nama_kategori FROM tb_barang, tb_kategori WHERE tb_barang.id_kategori=tb_kategori.id_kategori AND id_barang='$id_barang'";
+$detail = $koneksi->query($sql);
+while ($row= $detail->fetch_array()) { 
+ ?>
+<!--row-->
 <div class="row">
-    <div class="col-lg-12">
-        <!--row-->
+
+<h3 class="page-header"><b>Detail Product</b></h3>        
         <div class="row">
             <div class="col-lg-4">
-                <h3 class="page-header"><b>Detail Product</b></h3>
-                <img src="img/img01.jpg" width="330" height="350">
+                
+                <img src="<?php echo "img/dagangan_UMKM/".$row['gambar_barang']; ?>" width="350px" height="320px">
             </div>
 
             <div class="col-lg-8">
                 <!-- panel info -->
             <div class="panel-info">
-                <div class="panel-heading"><b>Profil Anda</b>
+                <div class="panel-heading"><b>Detail Produk</b>
                 </div>
                 <div class="page-body">
                     <table class="table table-hover">
+                    
                         <tr>
                             <td>
                                 <label> Nama Barang</label>
@@ -23,18 +32,7 @@
                                 <label> : </label>
                             </td>
                             <td>
-                                <label> aaa</label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label> Bahan</label>
-                            </td>
-                            <td>
-                                <label> : </label>
-                            </td>
-                            <td>
-                                <label> ooo </label>
+                                <?php echo $row['nama_barang']; ?>
                             </td>
                         </tr>
                         <tr>
@@ -45,7 +43,7 @@
                                 <label> : </label>
                             </td>
                             <td>
-                                <label> bbb</label>
+                                <?php echo $row['nama_kategori']; ?>
                             </td>
                         </tr>
                         <tr>
@@ -56,7 +54,7 @@
                                 <label> : </label>
                             </td>
                             <td>
-                                <label> 111 </label>
+                                <?php echo $row['jumlah_stok']; ?>
                             </td>
                         </tr>
                         <tr>
@@ -67,7 +65,7 @@
                                 <label> : </label>
                             </td>
                             <td>
-                                <label> diameter, panjang, lebar</label>
+                                <?php echo $row['spesifikasi_barang']; ?>
                             </td>
                         </tr>
                         <tr>
@@ -106,4 +104,5 @@
 
     </div>
 </div>
+<?php } ?>
 <!-- end row -->

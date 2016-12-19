@@ -63,7 +63,7 @@ $(document).ready(function(){
                             <div class="form-group">
                                 <label>Alamat</label>
                                 <input class="form-control" placeholder="Alamat" name="alamat" type="text" required>
-                            </div>
+                            </div>                            
                             <div class="form-group">
                                 <label>No Telfon</label>
                                 <input class="form-control" placeholder="Nomor" name="no_telfon" maxlength="12" type="tel" required>
@@ -77,7 +77,7 @@ $(document).ready(function(){
                                 <input class="form-control" placeholder="Kata Sandi" name="kata_sandi" type="password" required>
                             </div>
                             <div class="form-group">
-                                <button href="#" type="submit" class="btn btn-info" >  Daftar  </button>
+                                <button type="submit" class="btn btn-info" >  Daftar  </button>
                             </div>
                         </form>
                     </div>

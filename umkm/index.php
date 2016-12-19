@@ -154,6 +154,12 @@ $nama_umkm = $row['nama_umkm'];
                 include 'manaje_kiriman.php';
             }else if($_GET['halaman']=="tambah_barang"){
                 include 'barang_form_tambah.php';
+			}else if($_GET['halaman']=="edit_barang"){
+                include 'barang_form_edit.php';
+			}else if($_GET['halaman']=="hapus_barang"){
+                include 'barang_hapus.php';
+			}else if($_GET['halaman']=="detail_pesan"){
+                include 'pesan_detail_pesanan.php';
             }else if($_GET['halaman']=="profil"){
                 include 'profil.php';
             }else{

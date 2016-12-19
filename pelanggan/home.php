@@ -1,4 +1,8 @@
 <!-- row -->
+<?php
+session_start(); 
+include 'config/koneksi.php';
+ ?>
 <div class="row"><br>
     <div class="col-lg-12">
         <div class="col-lg-12">
@@ -26,41 +30,25 @@
                     </script>
             </div>
         </div>
+        <?php 
 
+            $sql = "SELECT tb_barang.gambar_barang, tb_barang.id_barang, count(tb_detail_pesan.jumlah_pesan) from tb_barang, tb_detail_pesan where tb_barang.id_barang = tb_detail_pesan.id_barang group by tb_detail_pesan.id_barang desc limit 5 ";
+            $kategori = $koneksi->query($sql);
+         while ( $hasil = $kategori->fetch_array()) {?>
         <div class="col-lg-3">
             <div class="panel panel-green" align="center">
                 <div class="panel-footer">
-                    <img  src="img/img01.jpg" width="200" height="200">
+                    <img src="<?php echo "img/dagangan_UMKM/".$hasil['gambar_barang'];?>" width="200" height="200">
                 </div>
                 <div class="panel-footer">
-                    <a href="" style="text-decoration:none"><i class="fa fa-tags fa-fw"></i> Detail Produk </a>
-                    <a href="" style="text-decoration:none"><i class="fa fa-shopping-cart fa-fw"></i> Beli Sekarang </a>
+                    <a href="index.php?halaman=detail_product&&id_barang=<?php echo $hasil['id_barang'] ?>" style="text-decoration:none"><i class="fa fa-tags fa-fw"></i> Detail Produk </a>
+                    <a href="index.php?halaman=shoppingcart&&id_barang=<?php echo $hasil['id_barang'] ?>" style="text-decoration:none"><i class="fa fa-shopping-cart fa-fw"></i> Beli Sekarang </a>
                 </div>
             </div>
         </div>
-        <div class="col-lg-3">
-            <div class="panel panel-green" align="center">
-                <div class="panel-footer">
-                    <img  src="img/img02.jpg" width="200" height="200">
-                </div>
-                <div class="panel-footer">
-                    <a href="" style="text-decoration:none"><i class="fa fa-tags fa-fw"></i> Detail Produk </a>
-                    <a href="" style="text-decoration:none"><i class="fa fa-shopping-cart fa-fw"></i> Beli Sekarang </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3">
-            <div class="panel panel-green" align="center">
-                <div class="panel-footer">
-                    <img  src="img/img03.jpg" width="200" height="200">
-                </div>
-                <div class="panel-footer">
-                    <a href="" style="text-decoration:none"><i class="fa fa-tags fa-fw"></i> Detail Produk </a>
-                    <a href="" style="text-decoration:none"><i class="fa fa-shopping-cart fa-fw"></i> Beli Sekarang </a>
-                </div>
-            </div>
-        </div>
+        <?php };
+        ?>
     
     </div>
 </div>
-<!-- end row -->
+<!-- end row

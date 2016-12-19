@@ -122,7 +122,7 @@ $nama_admin = $row['nama_admin'];
                             <a href="index.php?halaman=validasi_bayar"><i class="fa fa-check-square fa-fw"></i> Validasi Pembayaran </a>
                         </li>
                         <li>
-                            <a href="index.php?halaman=manaje_bayar"><i class="fa fa-money fa-fw"></i> Manaje Pengiriman</a>
+                            <a href="index.php?halaman=manaje_pengiriman"><i class="fa fa-money fa-fw"></i> Manaje Pengiriman</a>
                         </li>  
                         <li>
                             <a href="index.php?halaman=manaje_keluhan"><i class="fa fa-comments fa-fw"></i> Manaje Keluhan Pelanggan </a>
@@ -143,6 +143,8 @@ $nama_admin = $row['nama_admin'];
 
             if ($_GET['halaman']=="profil") {
                 include 'profil.php';
+            }else if($_GET['halaman']=="profil_ubah"){
+                include 'profil_form_ubah.php';
             }else if($_GET['halaman']=="about"){
                 include 'about.php';
             }else if($_GET['halaman']=="acc_umkm"){
@@ -163,7 +165,7 @@ $nama_admin = $row['nama_admin'];
                 include 'kategori_form_ubah.php';
             }else if($_GET['halaman']=="validasi_bayar"){
                 include 'validasi_bayar.php';
-            }else if($_GET['halaman']=="manaje_bayar"){
+            }else if($_GET['halaman']=="manaje_pengiriman"){
                 include 'manaje_bayar.php';
             }else if($_GET['halaman']=="jasa_kirim"){
                 include 'jasa_kirim.php';

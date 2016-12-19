@@ -17,12 +17,11 @@
                     <tr>
                         <th>No</th>
                         <th>UMKM</th>
-                        <th>No Rekening</th>
-                        <th>Barang</th>
-                        <th>Jumlah</th>                        
+                        <th>No Rekening</th>                      
                         <th>Tanggal Pesan</th>
                         <th>Total Biaya</th>
                         <th>No Resi</th>
+                        <th>Aksi</th>
                         <th>Aksi</th>
                         <th>Aksi</th>
                     </tr>
@@ -37,20 +36,13 @@
                             tb_umkm.nama_umkm,
                             tb_rekening.no_rekening,
                             tb_pesan.id_pesan,
-                            tb_barang.id_barang,
-                            tb_barang.nama_barang,
                             tb_pesan.tanggal_pesan,
-                            tb_detail_pesan.jumlah_pesan,
-                            tb_detail_pesan.sub_total,
                             tb_pesan.total_biaya,
                             tb_pembayaran.id_pembayaran,
                             tb_pembayaran.no_resi
-                    FROM tb_umkm, tb_rekening, tb_pesan, tb_barang, tb_detail_pesan, tb_pembayaran
-                    WHERE tb_umkm.id_umkm = tb_barang.id_umkm
-                    AND tb_umkm.id_umkm = tb_rekening.id_umkm
+                    FROM tb_umkm, tb_rekening, tb_pesan, tb_pembayaran
+                    WHERE tb_umkm.id_umkm = tb_rekening.id_umkm
                     AND tb_pesan.id_pesan = tb_pembayaran.id_pesan
-                    AND tb_pesan.id_pesan = tb_detail_pesan.id_pesan
-                    AND tb_barang.id_barang = tb_detail_pesan.id_barang
                     AND tb_pembayaran.no_resi !=''
                     AND tb_pembayaran.status ='1'";
             
@@ -62,14 +54,17 @@
                     <td><?php echo $no ?></td>
                     <td><?php echo $row['nama_umkm']; ?></td>
                     <td><?php echo $row['no_rekening']; ?></td>
-                    <td><?php echo $row['nama_barang']; ?></td>                    
-                    <td><?php echo $row['jumlah_pesan']; ?></td>
                     <td><?php echo $row['tanggal_pesan']; ?></td>
                     <td><?php echo $row['total_biaya']; ?></td> 
-                    <td><?php echo $row['no_resi']; ?></td> 
+                    <td><p class="bg-info text-center"><?php echo $row['no_resi']; ?></p></td> 
                     <td>
                         <button type="submit" name="submit1" class="btn btn-warning" value="<?php echo $row['id_pembayaran']; ?>">
                             <i class="fa fa-warning fa-fw"></i>Tidak Valid
+                        </button>
+                    </td>
+                    <td>
+                        <button type="submit" name="submit2" class="btn btn-warning" value="<?php echo $row['id_pembayaran']; ?>">
+                            <i class="fa fa-warning fa-fw"></i>Salah Nomor Resi
                         </button>
                     </td>
                     <td>

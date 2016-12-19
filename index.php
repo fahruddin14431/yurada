@@ -149,7 +149,10 @@ $id_pelanggan = $_SESSION['id_pelanggan'];
                     <ul class="nav" id="side-menu">
                         <li class="sidebar-search">
                             <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Search...">
+                            <?php 
+                            	$sql = "SELECT nama_barang FROM tb_barang WHERE id_barang like %$cari%";
+                             ?>
+                                <input type="text" class="form-control" id="cari" placeholder="Search...">
                                 <span class="input-group-btn">
                                 <button class="btn btn-default" type="button">
                                     <i class="fa fa-search"></i>
@@ -162,17 +165,22 @@ $id_pelanggan = $_SESSION['id_pelanggan'];
                             <a href="index.php"><i class="fa fa-home fa-fw"></i> Home </a>
                         </li>
                         <li>
+                         <?php 
+
+	                        $sql = "SELECT * FROM tb_kategori";
+	                        $kategori = $koneksi->query($sql);
+
+                         ?>
                             <a href="#"><i class="fa fa-tags fa-fw"></i>Product<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="index.php?halaman=product_hijab">Accesoris Hijab</a>
+                            <ul class="nav nav-second-level">                             
+                           <?php
+	                        while ( $hasil = $kategori->fetch_array()) {?>
+	                        <li>
+	                        	<a class="dropdown-toggle"  href="index.php?halaman=product&&ambil_kategori=<?php echo $hasil['id_kategori'];?>">
+                            		 <?php echo $hasil['nama_kategori'];?> 
+                        		</a>                        	
                                 </li>
-                                <li>
-                                    <a href="index.php?halaman=product_fashion">Accesoris Fashion</a>
-                                </li>
-                                <li>
-                                    <a href="index.php?halaman=product_elektronik">Accesoris Elektronik</a>
-                                </li>
+	                        <?php }; ?>
                             </ul>
                         </li>
                         <li class="<?php echo $disabled_li; ?>">
@@ -221,11 +229,7 @@ $id_pelanggan = $_SESSION['id_pelanggan'];
                 include 'pelanggan/tracking.php';
             }else if($_GET['halaman']=="payment"){
                 include 'pelanggan/payment.php';
-            }else if($_GET['halaman']=="product_hijab"){
-                include 'pelanggan/product.php';
-            }else if($_GET['halaman']=="product_fashion"){
-                include 'pelanggan/product.php';
-            }else if($_GET['halaman']=="product_elektronik"){
+            }else if($_GET['halaman']=="product"){
                 include 'pelanggan/product.php';
             }else if($_GET['halaman']=="detail_product"){
                 include 'pelanggan/detail_product.php';

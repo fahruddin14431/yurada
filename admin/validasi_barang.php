@@ -22,6 +22,7 @@
                         <th>Kategori</th>
                         <th>UMKM</th>
                         <th>Aksi</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -41,7 +42,7 @@
                     <td><?php echo $no ?></td>
                     <td><?php echo $row['id_barang']; ?></td>
                     <td><?php echo $row['nama_barang']; ?></td>
-                    <td><?php echo $row['gambar_barang']; ?></td>
+                    <td><?php echo "<img src='../img/dagangan_UMKM/".$row['gambar_barang']."' width='100px' height='100px'/>"; ?></td>
                     <td><?php echo $row['nama_kategori']; ?></td>
                     <td><?php echo $row['nama_umkm']; ?></td>
                     <td>

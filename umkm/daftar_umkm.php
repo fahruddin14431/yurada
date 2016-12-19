@@ -39,9 +39,8 @@ $kata_sandi = sha1(md5($ubah, 'yuradatamvan'));
 
 $status = "0";
 
-// foreach ($id_jasa_pengiriman as $value) {
-// 	echo "jasa ".$value;
-// };
+$id_bank = $_POST['id_bank'];
+$no_rek = $_POST['no_rek'];
 
 $sql = "SELECT * FROM tb_umkm WHERE no_telfon='$no_telp' OR nama_umkm='$nama_umkm' OR email='$email'";
 $res = $koneksi->query($sql);
@@ -53,6 +52,10 @@ if($row==1){
 }else{
 	// insert tb umkm
 	$sql = "INSERT INTO tb_umkm values ('$id','$nama_umkm','$nama_pemilik','$alamat','$id_kota','$id_prov','$email','$no_telp','$deskripsi','$nama_pengguna','$kata_sandi','$status')";
+	$res = $koneksi->query($sql);
+
+	// insert tb rekening
+	$sql = "INSERT INTO tb_rekening values ('$id','$id_bank','$no_rek')";
 	$res = $koneksi->query($sql);
 
 	// insert tb detail_jasa_pengiriman

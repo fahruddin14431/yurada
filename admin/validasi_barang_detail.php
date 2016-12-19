@@ -24,7 +24,8 @@
                         <ul class="list-group">
                             <li class="list-group-item">ID : <?php echo $row['id_barang']; ?></li>
                             <li class="list-group-item">Nama : <?php echo $row['nama_barang']; ?></li>
-                            <li class="list-group-item">Gambar : <?php echo $row['gambar_barang']; ?></li>
+                            <li class="list-group-item">Gambar :</li>
+                            <li class="list-group-item"><?php echo "<img src='../img/dagangan_UMKM/".$row['gambar_barang']."' width='300px' height='300px'/>"; ?></li>
                             <li class="list-group-item">Harga : <?php echo $row['harga_barang']; ?></li>
                             <li class="list-group-item">Spesifikasi : <?php echo $row['spesifikasi_barang']; ?></li>
                             <li class="list-group-item">Kategori : <?php echo $row['nama_kategori']; ?></li>

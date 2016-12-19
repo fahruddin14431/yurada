@@ -18,6 +18,7 @@
                         <th>No</th>
                         <th>Kode Product</th>
                         <th>Nama Product</th>
+						<th>Gambar</th>
                         <th>Kategori</th>
                         <th>Jumlah</th>
                         <th>Harga/Pcs</th>
@@ -30,8 +31,10 @@
             <?php 
             include '../config/koneksi.php';
             $no = 1;
+			session_start();
+			$id_umkm = $_SESSION['id_umkm'];
 
-            $sql = "SELECT * FROM tb_barang, tb_kategori";
+            $sql = "SELECT * FROM tb_barang, tb_kategori WHERE tb_barang.id_kategori = tb_kategori.id_kategori AND id_umkm = '$id_umkm'";
             
             $result = $koneksi->query($sql);
             ?>
@@ -47,16 +50,18 @@
                     <td><?php echo $no ?></td>
                     <td><?php echo $row['id_barang']; ?></td>
                     <td><?php echo $row['nama_barang']; ?></td>
+					<td><?php echo "<img src='../img/dagangan_UMKM/".$row['gambar_barang']."' width='100px' height='100px'/>"; ?></td>
                     <td><?php echo $row['nama_kategori']; ?></td>
                     <td><?php echo $row['jumlah_stok']; ?></td>
                     <td><?php echo $row['harga_barang']; ?></td>
                     <td>
-                        <a href="" class="btn btn-warning">
+                        <a href="index.php?halaman=edit_barang&&id_barang=<?php echo $row['id_barang']; ?>" class="btn btn-warning">
                             <span class="glyphicon glyphicon-edit"></span> Edit 
                         </a>
                     </td>
                     <td>               
-                        <a href="" onClick="return confirm('Data Akan Dihapus !')" class="btn btn-danger">
+                        <a href="index.php?halaman=hapus_barang&&id_barang=<?php echo $row['id_barang']; ?>" 
+							onClick="return confirm('Data Akan Dihapus !')" class="btn btn-danger">
                             <span class="glyphicon glyphicon-trash"></span> Hapus
                         </a>
                     </td>

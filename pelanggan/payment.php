@@ -20,8 +20,12 @@
         <div class="col-lg-6">
         	<h3 class="page-header"><b>Bukti Pembayaran</b></h3>
         	<p>Silahkan Upload Bukti Pembayaran Anda jika telah melakukan transfer. </p>
-        	<button class="btn btn-info" href="#"> Pilih </button>
-        	<button class="btn btn-info" href="index.php"> Upload </button><br><br>
+            <form method="post" action="pelanggan/upload.php">
+                <input type="file" name="bukti_transfer" required/>
+                <br>
+                <button class="btn btn-info"> Upload </button><br><br>
+            </form>
+            
         	<div class="col-lg-6" align="center">
         		<img src="" height="350" width="250">
         	</div>
