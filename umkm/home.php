@@ -18,7 +18,7 @@ $nama_umkm = $row['nama_umkm'];
       	<div class="row">
       		<?php  
 
-	      	$sql = "SELECT COUNT(id_barang) FROM tb_barang";
+	      	$sql = "SELECT COUNT(id_barang) FROM tb_barang WHERE id_umkm='$id_umkm'";
 	      	$result = $koneksi->query($sql);
 	      	$row = $result->fetch_array();
 	      	$dagangan_UMKM = $row[0];
@@ -26,7 +26,7 @@ $nama_umkm = $row['nama_umkm'];
 	      	?>
 	      	<div class="col-lg-3 col-xs-6">
 	          <!-- small box -->
-	          <div class="small-box bg-aqua">
+	          <div class="small-box bg-red">
 	            <div class="inner">
 	              <h3><?php echo $dagangan_UMKM; ?></h3>
 
@@ -56,14 +56,14 @@ $nama_umkm = $row['nama_umkm'];
 
 	        <div class="col-lg-3 col-xs-6">
 	          <!-- small box -->
-	          <div class="small-box bg-yellow">
+	          <div class="small-box bg-green">
 	            <div class="inner">
 	              <h3><?php echo $pesanan_belum_terlayani ?></h3>
 
 	              <p>Pesanan Belum Terlayani</p>
 	            </div>
 	            <div class="icon">
-	              <i class="fa fa-warning"></i>
+	              <i class="fa fa-users"></i>
 	            </div>
 	            <a href="index.php?halaman=manaje_pesan" class="small-box-footer">Info Selanjutnya <i class="fa fa-arrow-circle-right"></i></a>
 	          </div>
@@ -86,14 +86,14 @@ $nama_umkm = $row['nama_umkm'];
 
 	        <div class="col-lg-3 col-xs-6">
 	          <!-- small box -->
-	          <div class="small-box bg-green">
+	          <div class="small-box bg-aqua">
 	            <div class="inner">
 	              <h3><?php echo $pesan_terlayani; ?></h3>
 
 	              <p>Pesanan Yang Sudah Terlayani</p>
 	            </div>
 	            <div class="icon">
-	              <i class="fa fa-check-square"></i>
+	              <i class="fa fa-th"></i>
 	            </div>
 	            <a href="index.php?halaman=manaje_kiriman" class="small-box-footer">Info Selanjutnya <i class="fa fa-arrow-circle-right"></i></a>
 	          </div>

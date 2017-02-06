@@ -8,8 +8,8 @@ include 'config/koneksi.php';
         <div class="col-lg-12">
             <div class="panel panel-green">
                  <div class="sd-content sd-section" style="max-width:100%">
-                   <img class="mySlides" src="img/bm.png" style="width:100%" >
-                   <img class="mySlides" src="img/bm2.png" style="width:100% ">
+                   <img class="mySlides" src="img/1.jpg" style="width:100%" >
+                   <img class="mySlides" src="img/diskon.jpg" style="width:100% ">
                  </div>
 
                     <script>

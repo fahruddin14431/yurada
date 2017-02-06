@@ -51,7 +51,7 @@ $nama_admin = $row['nama_admin'];
     <script src="../assets/jquery/jquery.min.js"></script>
 
     <!-- jQuery DataTables -->
-    <script src="../assets/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="../assets/datatables/js/jquery.dataTables.js"></script>
 
     <!-- Data Tables JavaScript -->
     <script src="../assets/datatables/js/dataTables.bootstrap.js"></script>

@@ -33,7 +33,7 @@
 					tb_pembayaran.id_pembayaran, tb_pembayaran.bukti_pembayaran
 					FROM tb_pesan, tb_pembayaran 
 					WHERE tb_pesan.id_pesan = tb_pembayaran.id_pesan
-					AND tb_pembayaran.status = '1'
+					AND tb_pembayaran.status = 1
 					AND tb_pembayaran.no_resi = ''";
             
             $result = $koneksi->query($sql);

@@ -40,6 +40,9 @@ $id_pelanggan = $_SESSION['id_pelanggan'];
     <!-- Helper Widget CSS -->
     <link href="assets/helper/AdminLTE.min.css" rel="stylesheet">
 
+    <!-- gambar -->
+        <link href="assets/gambar.js">
+        
     <!-- Sweet Alert -->
     <!-- <link href="assets/sweet-alert/sweetalert.css" rel="stylesheet" type="text/css"> -->
     <!-- <script type="text/javascript" src="assets/sweet-alert/sweetalert.js"></script> -->

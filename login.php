@@ -24,7 +24,7 @@ if ($status=="pelanggan") {
 	 }
 }else if($status=="umkm"){
 
-	$aksi="SELECT id_umkm, email, kata_sandi FROM tb_umkm WHERE email='$email'";
+	$aksi="SELECT id_umkm, email, kata_sandi FROM tb_umkm WHERE email='$email' AND status='1'";
  	$hasil= mysqli_query($koneksi, $aksi);
  	$data=mysqli_fetch_array($hasil);
 

@@ -11,7 +11,7 @@ $sql = "insert into tb_pembayaran values ('byr1001101002','psn1001101','','','$f
 $res = $koneksi->query ($sql);
 
 	if($res) {
-		Helper::alertDirectRoot ('upload pembayaran sukses','payment');
+		Helper::alertDirect('upload pembayaran sukses','laporan');
 	}else{
 		Helper::alertDirectRoot ('upload pembayaran gagal','payment');
 	}

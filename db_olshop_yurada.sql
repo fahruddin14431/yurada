@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
+-- version 4.2.11
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 13 Des 2016 pada 03.07
--- Versi Server: 10.1.16-MariaDB
--- PHP Version: 5.6.24
+-- Generation Time: Jan 09, 2017 at 12:10 PM
+-- Server version: 5.6.21
+-- PHP Version: 5.6.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Database: `db_olshop_yurada`
@@ -23,10 +23,33 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_admin`
+-- Table structure for table `shoppingcart`
 --
 
-CREATE TABLE `tb_admin` (
+CREATE TABLE IF NOT EXISTS `shoppingcart` (
+  `id_pelanggan` varchar(20) NOT NULL,
+  `id_barang` varchar(20) NOT NULL,
+  `nama_barang` varchar(20) NOT NULL,
+  `kategori_barang` varchar(20) NOT NULL,
+  `harga` double NOT NULL,
+  `jumlah` int(11) NOT NULL,
+  `tagihan` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `shoppingcart`
+--
+
+INSERT INTO `shoppingcart` (`id_pelanggan`, `id_barang`, `nama_barang`, `kategori_barang`, `harga`, `jumlah`, `tagihan`) VALUES
+('PEL1604101', 'hkdjfkadj', 'barang_1', 'subhanalloh Alhamdul', 40000, 30, '1200000');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_admin`
+--
+
+CREATE TABLE IF NOT EXISTS `tb_admin` (
   `id_admin` varchar(10) NOT NULL,
   `nama_admin` varchar(50) NOT NULL,
   `jenis_kelamin` enum('L','P') NOT NULL,
@@ -34,30 +57,29 @@ CREATE TABLE `tb_admin` (
   `no_telfon` varchar(12) NOT NULL,
   `email` varchar(50) NOT NULL,
   `nama_pengguna` varchar(30) NOT NULL,
-  `kata_sandi` varchar(50) NOT NULL,
-  `no_rekening` varchar(50) NOT NULL
+  `kata_sandi` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_admin`
+-- Dumping data for table `tb_admin`
 --
 
-INSERT INTO `tb_admin` (`id_admin`, `nama_admin`, `jenis_kelamin`, `alamat`, `no_telfon`, `email`, `nama_pengguna`, `kata_sandi`, `no_rekening`) VALUES
-('ADM101', 'Habibi', 'L', 'Jl KH Ahmad Dahlan ', '085855449666', 'yusufudin14431@gmail.com', 'Habibi', 'de33fd244a6f5f46707db201e82c9356e07d622c', '');
+INSERT INTO `tb_admin` (`id_admin`, `nama_admin`, `jenis_kelamin`, `alamat`, `no_telfon`, `email`, `nama_pengguna`, `kata_sandi`) VALUES
+('ADM101', 'Habibi', 'L', 'Jl KH Ahmad Dahlan ', '085855449666', 'yusufudin14431@gmail.com', 'Habibi', 'de33fd244a6f5f46707db201e82c9356e07d622c');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_bank`
+-- Table structure for table `tb_bank`
 --
 
-CREATE TABLE `tb_bank` (
+CREATE TABLE IF NOT EXISTS `tb_bank` (
   `id_bank` varchar(10) NOT NULL,
   `nama_bank` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_bank`
+-- Dumping data for table `tb_bank`
 --
 
 INSERT INTO `tb_bank` (`id_bank`, `nama_bank`) VALUES
@@ -66,10 +88,10 @@ INSERT INTO `tb_bank` (`id_bank`, `nama_bank`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_barang`
+-- Table structure for table `tb_barang`
 --
 
-CREATE TABLE `tb_barang` (
+CREATE TABLE IF NOT EXISTS `tb_barang` (
   `id_barang` varchar(10) NOT NULL,
   `id_umkm` varchar(15) NOT NULL,
   `nama_barang` varchar(50) NOT NULL,
@@ -81,19 +103,20 @@ CREATE TABLE `tb_barang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_barang`
+-- Dumping data for table `tb_barang`
 --
 
 INSERT INTO `tb_barang` (`id_barang`, `id_umkm`, `nama_barang`, `id_kategori`, `harga_barang`, `jumlah_stok`, `gambar_barang`, `spesifikasi_barang`) VALUES
-('asdf', 'UMKM0301102', 'asdf', '13', 1234124, 11, 'asdfdsdv', 'asdfasdf');
+('asdf', 'UMKM0301102', 'asdf', '13', 1234124, 11, 'img/img2.jpg', 'asdfasdf'),
+('hkdjfkadj', 'UMKM0301102', 'barang_1', '13', 40000, 12, 'img/img01.jpg', 'bagus');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_detail_jasa_pengiriman`
+-- Table structure for table `tb_detail_jasa_pengiriman`
 --
 
-CREATE TABLE `tb_detail_jasa_pengiriman` (
+CREATE TABLE IF NOT EXISTS `tb_detail_jasa_pengiriman` (
   `id_jasa_pengiriman` varchar(5) NOT NULL,
   `id_umkm` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -101,10 +124,10 @@ CREATE TABLE `tb_detail_jasa_pengiriman` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_detail_pesan`
+-- Table structure for table `tb_detail_pesan`
 --
 
-CREATE TABLE `tb_detail_pesan` (
+CREATE TABLE IF NOT EXISTS `tb_detail_pesan` (
   `id_pesan` varchar(10) NOT NULL,
   `id_barang` varchar(10) NOT NULL,
   `jumlah_pesan` int(11) NOT NULL,
@@ -112,7 +135,7 @@ CREATE TABLE `tb_detail_pesan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_detail_pesan`
+-- Dumping data for table `tb_detail_pesan`
 --
 
 INSERT INTO `tb_detail_pesan` (`id_pesan`, `id_barang`, `jumlah_pesan`, `sub_total`) VALUES
@@ -121,16 +144,16 @@ INSERT INTO `tb_detail_pesan` (`id_pesan`, `id_barang`, `jumlah_pesan`, `sub_tot
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_jasa_pengiriman`
+-- Table structure for table `tb_jasa_pengiriman`
 --
 
-CREATE TABLE `tb_jasa_pengiriman` (
+CREATE TABLE IF NOT EXISTS `tb_jasa_pengiriman` (
   `id_jasa_pengiriman` varchar(5) NOT NULL,
   `nama_jasa_pengiriman` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_jasa_pengiriman`
+-- Dumping data for table `tb_jasa_pengiriman`
 --
 
 INSERT INTO `tb_jasa_pengiriman` (`id_jasa_pengiriman`, `nama_jasa_pengiriman`) VALUES
@@ -142,16 +165,16 @@ INSERT INTO `tb_jasa_pengiriman` (`id_jasa_pengiriman`, `nama_jasa_pengiriman`) 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_kategori`
+-- Table structure for table `tb_kategori`
 --
 
-CREATE TABLE `tb_kategori` (
+CREATE TABLE IF NOT EXISTS `tb_kategori` (
   `id_kategori` varchar(5) NOT NULL,
   `nama_kategori` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_kategori`
+-- Dumping data for table `tb_kategori`
 --
 
 INSERT INTO `tb_kategori` (`id_kategori`, `nama_kategori`) VALUES
@@ -162,17 +185,17 @@ INSERT INTO `tb_kategori` (`id_kategori`, `nama_kategori`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_kota`
+-- Table structure for table `tb_kota`
 --
 
-CREATE TABLE `tb_kota` (
+CREATE TABLE IF NOT EXISTS `tb_kota` (
   `id_kota` varchar(5) NOT NULL,
   `nama_kota` varchar(50) NOT NULL,
   `id_provinsi` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_kota`
+-- Dumping data for table `tb_kota`
 --
 
 INSERT INTO `tb_kota` (`id_kota`, `nama_kota`, `id_provinsi`) VALUES
@@ -504,10 +527,10 @@ INSERT INTO `tb_kota` (`id_kota`, `nama_kota`, `id_provinsi`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_pelanggan`
+-- Table structure for table `tb_pelanggan`
 --
 
-CREATE TABLE `tb_pelanggan` (
+CREATE TABLE IF NOT EXISTS `tb_pelanggan` (
   `id_pelanggan` varchar(10) NOT NULL,
   `nama_pelanggan` varchar(50) NOT NULL,
   `alamat_pelanggan` text NOT NULL,
@@ -519,7 +542,7 @@ CREATE TABLE `tb_pelanggan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_pelanggan`
+-- Dumping data for table `tb_pelanggan`
 --
 
 INSERT INTO `tb_pelanggan` (`id_pelanggan`, `nama_pelanggan`, `alamat_pelanggan`, `id_kota`, `id_provinsi`, `no_telfon`, `email`, `kata_sandi`) VALUES
@@ -528,10 +551,10 @@ INSERT INTO `tb_pelanggan` (`id_pelanggan`, `nama_pelanggan`, `alamat_pelanggan`
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_pembayaran`
+-- Table structure for table `tb_pembayaran`
 --
 
-CREATE TABLE `tb_pembayaran` (
+CREATE TABLE IF NOT EXISTS `tb_pembayaran` (
   `id_pembayaran` varchar(10) NOT NULL,
   `id_pesan` varchar(10) NOT NULL,
   `total_transaksi` double NOT NULL,
@@ -541,19 +564,19 @@ CREATE TABLE `tb_pembayaran` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_pembayaran`
+-- Dumping data for table `tb_pembayaran`
 --
 
 INSERT INTO `tb_pembayaran` (`id_pembayaran`, `id_pesan`, `total_transaksi`, `no_resi`, `bukti_pembayaran`, `status`) VALUES
-('pem001', 'P001', 20000, '1', 'asdasdfasdfasdf', '1');
+('pem001', 'P001', 20000, '1', 'asdasdfasdfasdf', '0');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_pesan`
+-- Table structure for table `tb_pesan`
 --
 
-CREATE TABLE `tb_pesan` (
+CREATE TABLE IF NOT EXISTS `tb_pesan` (
   `id_pesan` varchar(10) NOT NULL,
   `id_pelanggan` varchar(10) NOT NULL,
   `tanggal_pesan` date NOT NULL,
@@ -565,7 +588,7 @@ CREATE TABLE `tb_pesan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_pesan`
+-- Dumping data for table `tb_pesan`
 --
 
 INSERT INTO `tb_pesan` (`id_pesan`, `id_pelanggan`, `tanggal_pesan`, `total_biaya`, `alamat`, `id_kota`, `id_provinsi`, `catatan`) VALUES
@@ -574,16 +597,16 @@ INSERT INTO `tb_pesan` (`id_pesan`, `id_pelanggan`, `tanggal_pesan`, `total_biay
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_provinsi`
+-- Table structure for table `tb_provinsi`
 --
 
-CREATE TABLE `tb_provinsi` (
+CREATE TABLE IF NOT EXISTS `tb_provinsi` (
   `id_provinsi` varchar(5) NOT NULL,
   `nama_provinsi` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_provinsi`
+-- Dumping data for table `tb_provinsi`
 --
 
 INSERT INTO `tb_provinsi` (`id_provinsi`, `nama_provinsi`) VALUES
@@ -625,17 +648,17 @@ INSERT INTO `tb_provinsi` (`id_provinsi`, `nama_provinsi`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_rekening`
+-- Table structure for table `tb_rekening`
 --
 
-CREATE TABLE `tb_rekening` (
+CREATE TABLE IF NOT EXISTS `tb_rekening` (
   `id_umkm` varchar(15) NOT NULL,
   `id_bank` varchar(10) NOT NULL,
   `no_rekening` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_rekening`
+-- Dumping data for table `tb_rekening`
 --
 
 INSERT INTO `tb_rekening` (`id_umkm`, `id_bank`, `no_rekening`) VALUES
@@ -644,10 +667,10 @@ INSERT INTO `tb_rekening` (`id_umkm`, `id_bank`, `no_rekening`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_umkm`
+-- Table structure for table `tb_umkm`
 --
 
-CREATE TABLE `tb_umkm` (
+CREATE TABLE IF NOT EXISTS `tb_umkm` (
   `id_umkm` varchar(15) NOT NULL,
   `nama_umkm` varchar(50) NOT NULL,
   `nama_pemilik` varchar(50) NOT NULL,
@@ -663,7 +686,7 @@ CREATE TABLE `tb_umkm` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_umkm`
+-- Dumping data for table `tb_umkm`
 --
 
 INSERT INTO `tb_umkm` (`id_umkm`, `nama_umkm`, `nama_pemilik`, `alamat_umkm`, `id_kota`, `id_provinsi`, `email`, `no_telfon`, `deskripsi_umkm`, `nama_pengguna`, `kata_sandi`, `status`) VALUES
@@ -678,165 +701,151 @@ INSERT INTO `tb_umkm` (`id_umkm`, `nama_umkm`, `nama_pemilik`, `alamat_umkm`, `i
 -- Indexes for table `tb_admin`
 --
 ALTER TABLE `tb_admin`
-  ADD PRIMARY KEY (`id_admin`);
+ ADD PRIMARY KEY (`id_admin`);
 
 --
 -- Indexes for table `tb_bank`
 --
 ALTER TABLE `tb_bank`
-  ADD PRIMARY KEY (`id_bank`);
+ ADD PRIMARY KEY (`id_bank`);
 
 --
 -- Indexes for table `tb_barang`
 --
 ALTER TABLE `tb_barang`
-  ADD PRIMARY KEY (`id_barang`),
-  ADD KEY `id_umkm` (`id_umkm`),
-  ADD KEY `id_kategori` (`id_kategori`);
+ ADD PRIMARY KEY (`id_barang`), ADD KEY `id_umkm` (`id_umkm`), ADD KEY `id_kategori` (`id_kategori`);
 
 --
 -- Indexes for table `tb_detail_jasa_pengiriman`
 --
 ALTER TABLE `tb_detail_jasa_pengiriman`
-  ADD KEY `id_jasa_pengiriman` (`id_jasa_pengiriman`),
-  ADD KEY `id_umkm` (`id_umkm`);
+ ADD KEY `id_jasa_pengiriman` (`id_jasa_pengiriman`), ADD KEY `id_umkm` (`id_umkm`);
 
 --
 -- Indexes for table `tb_detail_pesan`
 --
 ALTER TABLE `tb_detail_pesan`
-  ADD KEY `id_barang` (`id_barang`),
-  ADD KEY `id_pesan` (`id_pesan`);
+ ADD KEY `id_barang` (`id_barang`), ADD KEY `id_pesan` (`id_pesan`);
 
 --
 -- Indexes for table `tb_jasa_pengiriman`
 --
 ALTER TABLE `tb_jasa_pengiriman`
-  ADD PRIMARY KEY (`id_jasa_pengiriman`);
+ ADD PRIMARY KEY (`id_jasa_pengiriman`);
 
 --
 -- Indexes for table `tb_kategori`
 --
 ALTER TABLE `tb_kategori`
-  ADD PRIMARY KEY (`id_kategori`);
+ ADD PRIMARY KEY (`id_kategori`);
 
 --
 -- Indexes for table `tb_kota`
 --
 ALTER TABLE `tb_kota`
-  ADD PRIMARY KEY (`id_kota`),
-  ADD KEY `id_provinsi` (`id_provinsi`);
+ ADD PRIMARY KEY (`id_kota`), ADD KEY `id_provinsi` (`id_provinsi`);
 
 --
 -- Indexes for table `tb_pelanggan`
 --
 ALTER TABLE `tb_pelanggan`
-  ADD PRIMARY KEY (`id_pelanggan`),
-  ADD KEY `id_kota` (`id_kota`),
-  ADD KEY `id_provinsi` (`id_provinsi`);
+ ADD PRIMARY KEY (`id_pelanggan`), ADD KEY `id_kota` (`id_kota`), ADD KEY `id_provinsi` (`id_provinsi`);
 
 --
 -- Indexes for table `tb_pembayaran`
 --
 ALTER TABLE `tb_pembayaran`
-  ADD PRIMARY KEY (`id_pembayaran`),
-  ADD KEY `id_pesan` (`id_pesan`);
+ ADD PRIMARY KEY (`id_pembayaran`), ADD KEY `id_pesan` (`id_pesan`);
 
 --
 -- Indexes for table `tb_pesan`
 --
 ALTER TABLE `tb_pesan`
-  ADD PRIMARY KEY (`id_pesan`),
-  ADD KEY `id_pelanggan` (`id_pelanggan`),
-  ADD KEY `id_kota` (`id_kota`),
-  ADD KEY `id_provinsi` (`id_provinsi`);
+ ADD PRIMARY KEY (`id_pesan`), ADD KEY `id_pelanggan` (`id_pelanggan`), ADD KEY `id_kota` (`id_kota`), ADD KEY `id_provinsi` (`id_provinsi`);
 
 --
 -- Indexes for table `tb_provinsi`
 --
 ALTER TABLE `tb_provinsi`
-  ADD PRIMARY KEY (`id_provinsi`);
+ ADD PRIMARY KEY (`id_provinsi`);
 
 --
 -- Indexes for table `tb_rekening`
 --
 ALTER TABLE `tb_rekening`
-  ADD KEY `id_umkm` (`id_umkm`),
-  ADD KEY `id_bank` (`id_bank`);
+ ADD KEY `id_umkm` (`id_umkm`), ADD KEY `id_bank` (`id_bank`);
 
 --
 -- Indexes for table `tb_umkm`
 --
 ALTER TABLE `tb_umkm`
-  ADD PRIMARY KEY (`id_umkm`),
-  ADD KEY `id_kota` (`id_kota`),
-  ADD KEY `id_provinsi` (`id_provinsi`);
+ ADD PRIMARY KEY (`id_umkm`), ADD KEY `id_kota` (`id_kota`), ADD KEY `id_provinsi` (`id_provinsi`);
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `tb_barang`
+-- Constraints for table `tb_barang`
 --
 ALTER TABLE `tb_barang`
-  ADD CONSTRAINT `tb_barang_ibfk_1` FOREIGN KEY (`id_umkm`) REFERENCES `tb_umkm` (`id_umkm`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tb_barang_ibfk_2` FOREIGN KEY (`id_kategori`) REFERENCES `tb_kategori` (`id_kategori`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `tb_barang_ibfk_1` FOREIGN KEY (`id_umkm`) REFERENCES `tb_umkm` (`id_umkm`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `tb_barang_ibfk_2` FOREIGN KEY (`id_kategori`) REFERENCES `tb_kategori` (`id_kategori`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `tb_detail_jasa_pengiriman`
+-- Constraints for table `tb_detail_jasa_pengiriman`
 --
 ALTER TABLE `tb_detail_jasa_pengiriman`
-  ADD CONSTRAINT `tb_detail_jasa_pengiriman_ibfk_1` FOREIGN KEY (`id_umkm`) REFERENCES `tb_umkm` (`id_umkm`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tb_detail_jasa_pengiriman_ibfk_2` FOREIGN KEY (`id_jasa_pengiriman`) REFERENCES `tb_jasa_pengiriman` (`id_jasa_pengiriman`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `tb_detail_jasa_pengiriman_ibfk_1` FOREIGN KEY (`id_umkm`) REFERENCES `tb_umkm` (`id_umkm`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `tb_detail_jasa_pengiriman_ibfk_2` FOREIGN KEY (`id_jasa_pengiriman`) REFERENCES `tb_jasa_pengiriman` (`id_jasa_pengiriman`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `tb_detail_pesan`
+-- Constraints for table `tb_detail_pesan`
 --
 ALTER TABLE `tb_detail_pesan`
-  ADD CONSTRAINT `tb_detail_pesan_ibfk_1` FOREIGN KEY (`id_barang`) REFERENCES `tb_barang` (`id_barang`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tb_detail_pesan_ibfk_2` FOREIGN KEY (`id_pesan`) REFERENCES `tb_pesan` (`id_pesan`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `tb_detail_pesan_ibfk_1` FOREIGN KEY (`id_barang`) REFERENCES `tb_barang` (`id_barang`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `tb_detail_pesan_ibfk_2` FOREIGN KEY (`id_pesan`) REFERENCES `tb_pesan` (`id_pesan`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `tb_kota`
+-- Constraints for table `tb_kota`
 --
 ALTER TABLE `tb_kota`
-  ADD CONSTRAINT `tb_kota_ibfk_1` FOREIGN KEY (`id_provinsi`) REFERENCES `tb_provinsi` (`id_provinsi`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `tb_kota_ibfk_1` FOREIGN KEY (`id_provinsi`) REFERENCES `tb_provinsi` (`id_provinsi`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `tb_pelanggan`
+-- Constraints for table `tb_pelanggan`
 --
 ALTER TABLE `tb_pelanggan`
-  ADD CONSTRAINT `tb_pelanggan_ibfk_1` FOREIGN KEY (`id_provinsi`) REFERENCES `tb_provinsi` (`id_provinsi`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tb_pelanggan_ibfk_2` FOREIGN KEY (`id_kota`) REFERENCES `tb_kota` (`id_kota`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `tb_pelanggan_ibfk_1` FOREIGN KEY (`id_provinsi`) REFERENCES `tb_provinsi` (`id_provinsi`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `tb_pelanggan_ibfk_2` FOREIGN KEY (`id_kota`) REFERENCES `tb_kota` (`id_kota`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `tb_pembayaran`
+-- Constraints for table `tb_pembayaran`
 --
 ALTER TABLE `tb_pembayaran`
-  ADD CONSTRAINT `tb_pembayaran_ibfk_1` FOREIGN KEY (`id_pesan`) REFERENCES `tb_pesan` (`id_pesan`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `tb_pembayaran_ibfk_1` FOREIGN KEY (`id_pesan`) REFERENCES `tb_pesan` (`id_pesan`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `tb_pesan`
+-- Constraints for table `tb_pesan`
 --
 ALTER TABLE `tb_pesan`
-  ADD CONSTRAINT `tb_pesan_ibfk_1` FOREIGN KEY (`id_pelanggan`) REFERENCES `tb_pelanggan` (`id_pelanggan`),
-  ADD CONSTRAINT `tb_pesan_ibfk_2` FOREIGN KEY (`id_kota`) REFERENCES `tb_kota` (`id_kota`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tb_pesan_ibfk_3` FOREIGN KEY (`id_provinsi`) REFERENCES `tb_provinsi` (`id_provinsi`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `tb_pesan_ibfk_1` FOREIGN KEY (`id_pelanggan`) REFERENCES `tb_pelanggan` (`id_pelanggan`),
+ADD CONSTRAINT `tb_pesan_ibfk_2` FOREIGN KEY (`id_kota`) REFERENCES `tb_kota` (`id_kota`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `tb_pesan_ibfk_3` FOREIGN KEY (`id_provinsi`) REFERENCES `tb_provinsi` (`id_provinsi`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `tb_rekening`
+-- Constraints for table `tb_rekening`
 --
 ALTER TABLE `tb_rekening`
-  ADD CONSTRAINT `tb_rekening_ibfk_1` FOREIGN KEY (`id_umkm`) REFERENCES `tb_umkm` (`id_umkm`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tb_rekening_ibfk_2` FOREIGN KEY (`id_bank`) REFERENCES `tb_bank` (`id_bank`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `tb_rekening_ibfk_1` FOREIGN KEY (`id_umkm`) REFERENCES `tb_umkm` (`id_umkm`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `tb_rekening_ibfk_2` FOREIGN KEY (`id_bank`) REFERENCES `tb_bank` (`id_bank`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `tb_umkm`
+-- Constraints for table `tb_umkm`
 --
 ALTER TABLE `tb_umkm`
-  ADD CONSTRAINT `tb_umkm_ibfk_1` FOREIGN KEY (`id_kota`) REFERENCES `tb_kota` (`id_kota`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tb_umkm_ibfk_2` FOREIGN KEY (`id_provinsi`) REFERENCES `tb_provinsi` (`id_provinsi`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `tb_umkm_ibfk_1` FOREIGN KEY (`id_kota`) REFERENCES `tb_kota` (`id_kota`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `tb_umkm_ibfk_2` FOREIGN KEY (`id_provinsi`) REFERENCES `tb_provinsi` (`id_provinsi`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -42,10 +42,6 @@
                                 <input class="form-control" value="<?php echo $no_rek; ?>" placeholder="No Rekening" name="no_rek" maxlength="50" type="text" required>
                             </div>
                             <div class="form-group">
-                                <label>Kata Sandi</label>
-                                <input class="form-control" value="<?php echo $no_rek; ?>" placeholder="No Rekening" name="no_rek" maxlength="50" type="text" required>
-                            </div>
-                            <div class="form-group">
                                 <button type="submit" name="submit" value="<?php echo $id; ?>" class="btn btn-success" >  Simpan  </button>
                             </div>
                         </form>
